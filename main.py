@@ -9,8 +9,9 @@ from os import getenv
 dotenv.load_dotenv()
 
 intents = discord.Intents.all()
+prefix = "!"
 
-bot = commands.Bot(intents=intents, command_prefix="!")
+bot = commands.Bot(intents=intents, command_prefix=prefix, help_command=None)
 
 @bot.event
 async def on_ready():
@@ -40,10 +41,13 @@ async def ping(message):
 async def docs(message, *args):
     await dev.docs(message, args)
 
-@bot.command(name="hlquotes")
+@bot.command(name="hlquotes", aliases=["half-life", "quotes", "halflife"])
 async def quotes(message):
     await dev.quotes(message)
 
+@bot.command(name="ajuda", aliases=["help"])
+async def ajuda(message):
+    await basic.ajuda(message, bot, prefix)
 
 if __name__ == "__main__":
     bot.run(getenv("TOKEN"))
