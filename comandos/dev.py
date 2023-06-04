@@ -1,4 +1,5 @@
 import json
+import requests
 
 async def docs(ctx, arg):
     if not arg:
@@ -14,3 +15,9 @@ async def docs(ctx, arg):
             link = dados[lang]
             await ctx.send(f"Estude a linguagem {lang} pelo site {link}")
 
+async def quotes(ctx):
+    quote_api = requests.get("https://hl-api.fly.dev/").json()
+    frase = quote_api[0]['quote']
+    autor = quote_api[0]['author']
+
+    await ctx.send(f'"{frase}", {autor}')

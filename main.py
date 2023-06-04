@@ -40,6 +40,10 @@ async def ping(message):
 async def docs(message, *args):
     await dev.docs(message, args)
 
+@bot.command(name="hlquotes")
+async def quotes(message):
+    await dev.quotes(message)
+
 
 if __name__ == "__main__":
     bot.run(getenv("TOKEN"))
