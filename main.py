@@ -21,7 +21,6 @@ async def on_message(message):
     if message.author == bot.user:
         return
     else:
-        print(f"Mensagem de {message.author}")
         await bot.process_commands(message)
 
 @bot.command(name="ola")
