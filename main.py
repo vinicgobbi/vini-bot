@@ -3,7 +3,6 @@ from discord.ext import commands
 import comandos.basic as basic
 import comandos.dev as dev
 import dotenv
-import openai
 from os import getenv
 
 dotenv.load_dotenv()
