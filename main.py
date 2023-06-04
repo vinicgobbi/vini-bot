@@ -35,6 +35,10 @@ async def dado(message):
 async def ping(message):
     await basic.ping(message, bot)
 
+@bot.command(name="sabio", aliases=["genio", "pergunta"])
+async def sabio(message, *args):
+    await basic.sabio(message)
+
 @bot.command(name="docs")
 async def docs(message, *args):
     await dev.docs(message, args)
