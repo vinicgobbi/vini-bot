@@ -31,7 +31,7 @@ Que tal testar sua sorte jogando os dados?
 O bot está lento para responder? Teste a latencia dele
 **{prefix}help**
 Mostra essa tela
-**{prefix}**sabio
+**{prefix}sabio**
 Pergunte ao sábio que ele te dará uma resposta""")
     embed.add_field(name="----- Dev -----", value=f"""**{prefix}docs**
 Que tal aprender a programar usando a documentação oficial da linguagem?
