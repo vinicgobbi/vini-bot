@@ -51,5 +51,9 @@ async def quotes(message):
 async def ajuda(message):
     await basic.ajuda(message, bot, prefix)
 
+@bot.command(name="github", aliases=["git"])
+async def github(message, arg):
+    await dev.github(message, arg)
+    
 if __name__ == "__main__":
     bot.run(getenv("TOKEN"))

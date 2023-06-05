@@ -1,3 +1,4 @@
+import discord
 import json
 import requests
 
@@ -21,3 +22,35 @@ async def quotes(ctx):
     autor = quote_api[0]['author']
 
     await ctx.send(f'"{frase}", {autor}')
+
+async def github(ctx, arg):
+    github_json = requests.get(f"https://api.github.com/users/{arg}").json()
+    if 'message' in github_json:
+        await ctx.send("Perfil não encontrado")
+    else:
+        username = github_json['login']
+        nome = github_json['name']
+        url = github_json['html_url']
+        avatar = github_json['avatar_url']
+        bio = github_json['bio']
+        seguindo = github_json['following']
+        seguidores = github_json['followers']
+        criado = github_json['created_at']
+        repos = github_json['public_repos']
+        gists = github_json['public_gists']
+        embed = discord.Embed(
+            title="Github User Info",
+        )
+        embed.set_thumbnail(url=avatar)
+        embed.set_footer(text=f"Solicitado por {ctx.author.name}", icon_url=ctx.author.avatar)
+        embed.add_field(name="--- Informações Básicas ---", value=f"""**Nome**: {nome}
+**Nome de Usuário**: {username}
+**Bio**: {bio}
+""")
+        embed.add_field(name="--- Informações técnicas ---", value=f"""**URL do perfil**: {url}
+**Repositórios**: {repos}
+**Gists**: {gists}
+**Seguidores**: {seguidores}
+**Seguindo**: {seguindo}
+**Criado em**: {criado}""")
+        await ctx.send(embed=embed)
