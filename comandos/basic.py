@@ -29,15 +29,15 @@ Nada melhor que um cumprimento a qualquer hora do dia certo?
 Que tal testar sua sorte jogando os dados?
 **{prefix}ping**
 O bot está lento para responder? Teste a latencia dele
-**{prefix}help**
+**{prefix}help [ajuda]**
 Mostra essa tela
-**{prefix}sabio**
+**{prefix}sabio [genio, pergunta]**
 Pergunte ao sábio que ele te dará uma resposta""")
     embed.add_field(name="----- Dev -----", value=f"""**{prefix}docs**
 Que tal aprender a programar usando a documentação oficial da linguagem?
-**{prefix}quotes**
+**{prefix}hlquotes [half-life, quotes, halflife]**
 Frases aleatória de Half-Life
-**{prefix}github**
+**{prefix}github [git]**
 Procurar informações de um perfil no github""")
     embed.set_footer(text=f"Solicitado por {ctx.author.name}", icon_url=ctx.author.avatar)
     await ctx.send(embed=embed)

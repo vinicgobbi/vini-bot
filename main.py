@@ -36,7 +36,7 @@ async def ping(message):
     await basic.ping(message, bot)
 
 @bot.command(name="sabio", aliases=["genio", "pergunta"])
-async def sabio(message, *args):
+async def sabio(message):
     await basic.sabio(message)
 
 @bot.command(name="docs")
