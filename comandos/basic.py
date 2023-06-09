@@ -25,7 +25,7 @@ async def ajuda(ctx, bot, prefix):
     embed.set_author(name=bot.user.name, icon_url=bot.user.avatar)
     embed.add_field(name="----- Básicos -----", value=f"""**{prefix}ola**
 Nada melhor que um cumprimento a qualquer hora do dia certo?
-**{prefix}dados**
+**{prefix}dado [dados]**
 Que tal testar sua sorte jogando os dados?
 **{prefix}ping**
 O bot está lento para responder? Teste a latencia dele

@@ -27,7 +27,7 @@ async def on_message(message):
 async def ola(message):
     await basic.ola(message, bot)
     
-@bot.command(name="dado")
+@bot.command(name="dado", aliases=["dados"])
 async def dado(message):
     await basic.dados(message)
 
