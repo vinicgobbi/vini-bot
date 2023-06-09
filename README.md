@@ -1,16 +1,31 @@
 # Vini-bot
 
-Apenas mais um bot
+## Propósito:
 
-Bot construido com fins educativos, para uso dos conhecimentos em um trabalho da faculdade
+O Vini-bot surgiu como forma para práticar minhas habilidades com a biblioteca discord.py para poder aplicar os conhecimentos em um trabalho de faculdade
 
-> Obrigado [RedsonBr140](https://github.com/RedsonBr140) por disponibilizar a API do [Half-Life Quotes](https://github.com/RedsonBr140/half-life-quotes)
+## Como utilizar:
 
-Foram utilizadas nesse projeto até o momento as bibliotecas
+Para utilizar o Vini-bot você deve ter um token de bot que pode ser obtido no [Site de desenvoldores do Discord](https://discord.com/developers)
 
-- discord.py
-- dotenv
-- random
-- json
-- requests
-- os (getenv)
+Após isso é só seguir as instruções:
+
+1) Renomeie o arquivo `.env_example` para `.env`
+2) Abra o arquivo com seu editor de texto favorito e altere o texto "**SEU TOKEN AQUI**" para o token obtido anteriormente
+3) Certifique-se de ter o [python](https://www.python.org/downloads/) e o [pip](https://pip.pypa.io/en/stable/installation/) instalados na máquina
+4) Instale as dependencias do bot com o comando: `pip install -r requirements.txt`
+5) Inicie o bot com o comando: `python main.py` caso isso não funcione tente rodar `python3 main.py`
+
+## Exemplos de uso
+
+### Dado
+
+![](/exemplos/dado.png)
+
+### Sabio
+
+![](/exemplos/sabio.png)
+
+### Github
+
+![](/exemplos/github.png)
