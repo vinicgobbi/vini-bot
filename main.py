@@ -8,13 +8,14 @@ from os import getenv
 dotenv.load_dotenv()
 
 intents = discord.Intents.all()
-prefix = "!"
+prefix = getenv("PREFIX")
 
 bot = commands.Bot(intents=intents, command_prefix=prefix, help_command=None)
 
 @bot.event
 async def on_ready():
     print(f"Logado no bot {bot.user} com sucesso!")
+    print(f"Prefixo do bot '{prefix}'")
 
 @bot.event
 async def on_message(message):
@@ -36,8 +37,8 @@ async def ping(message):
     await basic.ping(message, bot)
 
 @bot.command(name="sabio", aliases=["genio", "pergunta"])
-async def sabio(message):
-    await basic.sabio(message)
+async def sabio(message, args):
+    await basic.sabio(message, args)
 
 @bot.command(name="docs")
 async def docs(message, *args):
@@ -54,6 +55,10 @@ async def ajuda(message):
 @bot.command(name="github", aliases=["git"])
 async def github(message, arg):
     await dev.github(message, arg)
-    
+
+@bot.command(name="cep")
+async def cep(message, arg):
+    await dev.cep(message, arg)
+      
 if __name__ == "__main__":
     bot.run(getenv("TOKEN"))

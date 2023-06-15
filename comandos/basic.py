@@ -11,10 +11,14 @@ async def dados(ctx):
 async def ping(ctx, bot):
     await ctx.send(f"Pong! 🏓 {round(bot.latency, 2)} ms")
 
-async def sabio(ctx):
-    respostas = ["Sim", "Não", "Talvez", "Claro que sim","Claro que não", "Boa pergunta", "Obviamente não", "Obviamente Sim", "Claramente Sim", "Claramente não", "Me poupe", "Mano, me deixa quieto", "Me recuso a responder"]
-    numero = random.randint(0, len(respostas))
-    await ctx.send(respostas[numero])
+async def sabio(ctx, arg):
+    ask = ' '.join(arg).lower()
+    if ask[-1] == "?":
+        respostas = ["Sim", "Não", "Talvez", "Claro que sim","Claro que não", "Boa pergunta", "Obviamente não", "Obviamente Sim", "Claramente Sim", "Claramente não", "Me poupe", "Mano, me deixa quieto", "Me recuso a responder"]
+        numero = random.randint(0, len(respostas))
+        await ctx.send(respostas[numero])
+    else:
+        await ctx.send("Faça uma pergunta por favor")
 
 async def ajuda(ctx, bot, prefix):
     embed = discord.Embed(

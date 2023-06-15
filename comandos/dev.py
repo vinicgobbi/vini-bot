@@ -54,3 +54,14 @@ async def github(ctx, arg):
 **Seguindo**: {seguindo}
 **Criado em**: {criado}""")
         await ctx.send(embed=embed)
+
+async def cep(ctx, arg):
+    if not arg:
+        ctx.send("Nenhum CEP inserido")
+    else:
+        brasilapi = requests.get(f"https://brasilapi.com.br/api/cep/v2/{arg}").json()
+        cep = arg
+        estado = brasilapi['state']
+        cidade = brasilapi['city']
+        servico = brasilapi['service']
+        await ctx.send(f"**CEP**: {cep}\n**UF**: {estado}\n**Cidade**: {cidade}\nDisponbilizado por: {servico}")
