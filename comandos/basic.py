@@ -15,7 +15,7 @@ async def sabio(ctx, arg):
     ask = ' '.join(arg).lower()
     if ask[-1] == "?":
         respostas = ["Sim", "Não", "Talvez", "Claro que sim","Claro que não", "Boa pergunta", "Obviamente não", "Obviamente Sim", "Claramente Sim", "Claramente não", "Me poupe", "Mano, me deixa quieto", "Me recuso a responder"]
-        numero = random.randint(0, len(respostas))
+        numero = random.randint(0, len(respostas)-1)
         await ctx.send(respostas[numero])
     else:
         await ctx.send("Faça uma pergunta por favor")
