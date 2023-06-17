@@ -80,6 +80,11 @@ async def repos(ctx, args):
         forks = github_repo["forks"]
         issues = github_repo["open_issues"]
         lang = github_repo["language"]
+        is_fork = github_repo["fork"]
+        if is_fork:
+            is_fork = "Sim"
+        else:
+            is_fork = "Não"
         embed = discord.Embed(
             title="Github Repo Info"
         )
@@ -89,6 +94,7 @@ async def repos(ctx, args):
 **URL**: {repo_url}
 **Descrição**: {descricao}
 **Linguagem Principal**: {lang}
+**É um Fork**? {is_fork}
 **Forks**: {forks}
 **Problemas(Issues)**: {issues}""")
         await ctx.send(embed=embed)
