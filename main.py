@@ -52,12 +52,16 @@ async def ajuda(message):
     await basic.ajuda(message, bot, prefix)
 
 @bot.command(name="github", aliases=["git"])
-async def github(message, arg):
-    await dev.github(message, arg)
+async def github(message, args):
+    await dev.github(message, args)
 
 @bot.command(name="cep")
-async def cep(message, arg):
-    await dev.cep(message, arg)
+async def cep(message, args):
+    await dev.cep(message, args)
+
+@bot.command(name="repo", aliases=["repos"])
+async def repos(message, *args):
+    await dev.repos(message, args)
       
 if __name__ == "__main__":
     bot.run(config["token"])

@@ -64,3 +64,30 @@ async def cep(ctx, arg):
         cidade = brasilapi['city']
         servico = brasilapi['service']
         await ctx.send(f"**CEP**: {cep}\n**UF**: {estado}\n**Cidade**: {cidade}\nDisponbilizado por: {servico}")
+
+
+async def repos(ctx, args):
+    arg = "/".join(args).lower()
+    github_repo = requests.get(f"https://api.github.com/repos/{arg}").json()
+    if 'message' in github_repo:
+        await ctx.send("Repositório não encontrado, verifique as informações")
+    else:
+        repo_url = github_repo["html_url"]
+        avatar = github_repo["owner"]["avatar_url"]
+        nome = github_repo["name"]
+        descricao = github_repo["description"]
+        forks = github_repo["forks"]
+        issues = github_repo["open_issues"]
+        lang = github_repo["language"]
+        embed = discord.Embed(
+            title="Github Repo Info"
+        )
+        embed.set_thumbnail(url=avatar)
+        embed.set_footer(text=f"Solicitado por {ctx.author.name}", icon_url=ctx.author.avatar)
+        embed.add_field(name="--- Repo Info ---", value=f"""**Repositório**: {nome}
+**URL**: {repo_url}
+**Descrição**: {descricao}
+**Linguagem Principal**: {lang}
+**Forks**: {forks}
+**Problemas(Issues)**: {issues}""")
+        await ctx.send(embed=embed)

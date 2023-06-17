@@ -42,6 +42,10 @@ Que tal aprender a programar usando a documentação oficial da linguagem?
 **{prefix}hlquotes [half-life, quotes, halflife]**
 Frases aleatória de Half-Life
 **{prefix}github [git]**
-Procurar informações de um perfil no github""")
+Procurar informações de um perfil no github
+**{prefix}repo [repos]**
+Procurar informações de um repositório do github
+**{prefix}cep**
+Mostrar informações básicas de um local baseado em seu CEP""")
     embed.set_footer(text=f"Solicitado por {ctx.author.name}", icon_url=ctx.author.avatar)
     await ctx.send(embed=embed)
