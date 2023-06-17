@@ -6,8 +6,7 @@ async def docs(ctx, arg):
     if not arg:
         return
     else:
-        file = open("./langs.json")
-        dados = json.load(file)
+        dados = json.load(open("./langs.json"))
         lang = ' '.join(arg).lower()
         if lang not in dados:
             await ctx.send(f"Linguagem {lang} não encontrada, aguarde que ela pode ser adicionada no futuro")

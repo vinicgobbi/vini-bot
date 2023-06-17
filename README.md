@@ -10,7 +10,7 @@ Para utilizar o Vini-bot você deve ter um token de bot que pode ser obtido no [
 
 Após isso é só seguir as instruções:
 
-1) Renomeie o arquivo `.env_example` para `.env`
+1) Renomeie o arquivo `configExemplo.json` para `config.json`
 2) Abra o arquivo com seu editor de texto favorito e altere o texto "**SEU TOKEN AQUI**" para o token obtido anteriormente
 3) Certifique-se de ter o [python](https://www.python.org/downloads/) e o [pip](https://pip.pypa.io/en/stable/installation/) instalados na máquina
 4) Instale as dependencias do bot com o comando: `pip install -r requirements.txt`

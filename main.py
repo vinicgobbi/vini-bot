@@ -2,14 +2,13 @@ import discord
 from discord.ext import commands
 import comandos.basic as basic
 import comandos.dev as dev
-import dotenv
-from os import getenv
+import json
 
-dotenv.load_dotenv()
+config = json.load(open("./config.json"))
+
+prefix = config["prefix"]
 
 intents = discord.Intents.all()
-prefix = getenv("PREFIX")
-
 bot = commands.Bot(intents=intents, command_prefix=prefix, help_command=None)
 
 @bot.event
@@ -61,4 +60,4 @@ async def cep(message, arg):
     await dev.cep(message, arg)
       
 if __name__ == "__main__":
-    bot.run(getenv("TOKEN"))
+    bot.run(config["token"])
