@@ -56,15 +56,19 @@ async def github(ctx, arg):
 
 async def cep(ctx, args):
     if not args:
-        ctx.send("Nenhum CEP inserido")
+        await ctx.send("Nenhum CEP inserido")
     else:
-        arg = str(args).replace("-", "")
+        arg = "".join(args)
+        arg = str(arg).replace("-", "")
         brasilapi = requests.get(f"https://brasilapi.com.br/api/cep/v2/{arg}").json()
-        cep = arg
-        estado = brasilapi['state']
-        cidade = brasilapi['city']
-        servico = brasilapi['service']
-        await ctx.send(f"**CEP**: {cep}\n**UF**: {estado}\n**Cidade**: {cidade}\nDisponbilizado por: {servico}")
+        if "message" in brasilapi:
+            await ctx.send("CEP inválido")
+        else:
+            cep = arg
+            estado = brasilapi['state']
+            cidade = brasilapi['city']
+            servico = brasilapi['service']
+            await ctx.send(f"**CEP**: {cep}\n**UF**: {estado}\n**Cidade**: {cidade}\nDisponbilizado por: {servico}")
 
 
 async def repos(ctx, args):

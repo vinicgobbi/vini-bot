@@ -4,6 +4,22 @@ import random
 async def ola(ctx, bot):
     await ctx.send(f"Olá do {bot.user.name} 👋")
 
+async def avatar(ctx, member):
+    if not member:
+        embed = discord.Embed(
+            title=f"Avatar de {ctx.author.name}"
+        )
+        embed.set_image(url=ctx.author.avatar)
+        embed.set_footer(text=f"Solicitado por: {ctx.author.name}", icon_url=ctx.author.avatar)
+        await ctx.send(embed=embed)
+    else:
+        embed = discord.Embed(
+            title=f"Avatar de {member.name}"
+        )
+        embed.set_image(url=member.avatar)
+        embed.set_footer(text=f"Solicitado por: {ctx.author.name}", icon_url=ctx.author.avatar)
+        await ctx.send(embed=embed)
+
 async def dados(ctx):
     numero = random.randint(0, 6)
     await ctx.send(f"O dado caiu o numero {numero}")
@@ -29,6 +45,8 @@ async def ajuda(ctx, bot, prefix):
     embed.set_author(name=bot.user.name, icon_url=bot.user.avatar)
     embed.add_field(name="----- Básicos -----", value=f"""**{prefix}ola**
 Nada melhor que um cumprimento a qualquer hora do dia certo?
+**{prefix}avatar**
+Procurando pelo avatar de alguém? Encontre aqui!
 **{prefix}dado [dados]**
 Que tal testar sua sorte jogando os dados?
 **{prefix}ping**

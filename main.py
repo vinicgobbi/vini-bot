@@ -23,6 +23,10 @@ async def on_message(message):
     else:
         await bot.process_commands(message)
 
+@bot.event
+async def on_command_error(message, error):
+    await message.send(error)
+
 @bot.command(name="ola")
 async def ola(message):
     await basic.ola(message, bot)
@@ -56,12 +60,16 @@ async def github(message, args):
     await dev.github(message, args)
 
 @bot.command(name="cep")
-async def cep(message, args):
+async def cep(message, *args):
     await dev.cep(message, args)
 
 @bot.command(name="repo", aliases=["repos"])
 async def repos(message, *args):
     await dev.repos(message, args)
+
+@bot.command(name="avatar")
+async def avatar(message, member: discord.Member = None):
+    await basic.avatar(message, member)
       
 if __name__ == "__main__":
     bot.run(config["token"])
