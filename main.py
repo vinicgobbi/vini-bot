@@ -25,6 +25,7 @@ async def on_message(message):
 
 @bot.event
 async def on_command_error(message, error):
+    await message.send("Alguma coisa deu errado, mas não se preocupe meu dono está sempre trabalhando para corrigir problemas!\nSe quiser entrar em contato com ele, procure por @vinicgobbi e envie a mensagem de erro:")
     await message.send(error)
 
 @bot.command(name="ola")
