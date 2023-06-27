@@ -75,7 +75,7 @@ async def repos(ctx, args):
     arg = "/".join(args).lower()
     github_repo = requests.get(f"https://api.github.com/repos/{arg}").json()
     if 'message' in github_repo:
-        await ctx.send("Repositório não encontrado, verifique as informações")
+        await ctx.send("Repositório não encontrado, verifique as informações!\nCertifique-se de ter colocado a seguinte estrutura `<nome-de-usuario> <nome-do-repo>` ou `<nome-de-usuario>/<nome-do-repo>`")
     else:
         repo_url = github_repo["html_url"]
         avatar = github_repo["owner"]["avatar_url"]
