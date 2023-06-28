@@ -59,7 +59,7 @@ async def cep(ctx, args):
         await ctx.send("Nenhum CEP inserido")
     else:
         arg = "".join(args)
-        arg = str(arg).replace("-", "")
+        arg = str(arg).replace("-", "").replace(".", "")
         brasilapi = requests.get(f"https://brasilapi.com.br/api/cep/v2/{arg}").json()
         if "message" in brasilapi:
             await ctx.send("CEP inválido")
